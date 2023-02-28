@@ -1,27 +1,24 @@
 <template>
     <header>
-        <div v-if="postsPending">
-            <p>Loading data</p>
-        </div>
-        <div v-else>
-            <h2>Blog results</h2>
-            <ul>
-                <li v-for="post in blogPosts.allBlogPosts" :key="post.id">
-                    <nuxt-link :to="{name: 'blog-slug', params: {slug: post.blogSlug}}">{{ post.title }}</nuxt-link>
-                </li>
-            </ul>
-        </div>
-		<div class="logo">Logo</div>
+		<NuxtLink class="logo" to="/">
+            <img :src="data.header.logo.url" :alt="data.header.logo.alt">
+        </NuxtLink>
 		<nav>
-			<a href="#" class="nav-link">Accueil</a>
-			<a href="#" class="nav-link">Services</a>
-			<a href="#" class="nav-link">A propos</a>
-			<a href="#" class="nav-link">Contact</a>
+			<ul>
+                <template v-for="item_nav in data.header.navigationItems" :key="item_nav.id">
+                    <li v-if="item_nav.link._modelApiKey === 'category' ">
+                        <nuxt-link :to="{name: 'category-slug', params: {slug: item_nav.slug}}">{{ item_nav.title }}</nuxt-link>
+                    </li>
+                    <li v-else>
+                        <nuxt-link :to="{name: 'slug', params: {slug: item_nav.slug}}">{{ item_nav.title }}</nuxt-link>
+                    </li>
+                </template>
+            </ul>
 		</nav>
 	</header>
 </template>
 <script setup>
-    import blog_post from '@/cms/queries/blog_post';
+    import header from '@/cms/queries/header';
 
-    const { data: blogPosts, pending: postsPending } = await useLazyAsyncQuery(blog_post)
+    const { data: data, pending: postsPending } = await useLazyAsyncQuery(header)
 </script>
