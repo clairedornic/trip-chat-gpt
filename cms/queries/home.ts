@@ -9,6 +9,13 @@ query MyQuery {
         slug
         id
       }
+      image {
+        url
+        alt
+        responsiveImage {
+          srcSet
+        }
+      }
     }
   }
 `

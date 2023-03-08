@@ -10,7 +10,6 @@ import article from '@/cms/queries/article';
 
 const route = useRoute()
 let slug = route.params.slug
-console.log( this.$route );
 
 const { data: data, pending: postsPending } = await useLazyAsyncQuery(article, { slug: {eq : slug } } );
 </script>
