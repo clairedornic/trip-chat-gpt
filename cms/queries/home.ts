@@ -16,6 +16,11 @@ query MyQuery {
           srcSet
         }
       }
+      _seoMetaTags {
+        tag
+        content
+        attributes
+      }
     }
   }
 `
