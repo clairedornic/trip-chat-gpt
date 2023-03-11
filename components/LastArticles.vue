@@ -18,5 +18,5 @@
         categoryId: String
     })
 
-    const { data: dataLastArticles, pending: lastArticlesPending, error: error } = await useLazyAsyncQuery(lastArticles, { idCategory: props.categoryId } );
+    const { data: dataLastArticles, pending: lastArticlesPending, error: error } = await useAsyncQuery(lastArticles, { idCategory: props.categoryId } );
 </script>

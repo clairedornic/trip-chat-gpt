@@ -18,5 +18,5 @@
         categoryId: String
     })
 
-    const { data: dataBestDestinations, pending: bestDestinationsPending, error: error } = await useLazyAsyncQuery(bestDestinations, { idCategory: props.categoryId } );
+    const { data: dataBestDestinations, pending: bestDestinationsPending, error: error } = await useAsyncQuery(bestDestinations, { idCategory: props.categoryId } );
 </script>

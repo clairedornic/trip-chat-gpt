@@ -23,5 +23,5 @@
 <script setup>
     import header from '@/cms/queries/header';
 
-    const { data: data, pending: postsPending } = await useLazyAsyncQuery(header)
+    const { data: data, pending: postsPending } = await useAsyncQuery(header)
 </script>
