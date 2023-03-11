@@ -4,6 +4,11 @@ query MyQuery {
         content
         title
         subtitle
+        _seoMetaTags {
+            tag
+            content
+            attributes
+        }
     }
 }
 `

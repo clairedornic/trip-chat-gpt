@@ -5,6 +5,11 @@ query MyQuery($slug: SlugFilter) {
     subtitle
     content
     _createdAt
+    _seoMetaTags {
+      tag
+      content
+      attributes
+    }
   }
 }
 `
