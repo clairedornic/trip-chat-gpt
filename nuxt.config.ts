@@ -17,5 +17,9 @@ export default defineNuxtConfig({
     clients: {
       default: './config/apollo.ts'
     }
-  }
+  },
+  css: [
+    '@/assets/css/main.css',
+    '@/assets/css/main.scss'
+  ]
 })
