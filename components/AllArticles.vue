@@ -3,14 +3,30 @@
         <ul v-for="article in data.allArticles" :key="article.id">
             <li v-if="props.categorySlug === 'blog'">
                 <nuxt-link :to="{name: 'blog-slug', params: {slug: article.slug}}">
-                    <img :src="article.image.url" :alt="article.image.alt" :srcset="article.image.responsiveImage.scrSet">
+                    <img 
+                    :src="article.image.responsiveImage.src" 
+                    :alt="article.image.responsiveImage.alt" 
+                    :srcset="article.image.responsiveImage.scrSet"
+                    :sizes="article.image.responsiveImage.sizes"
+                    :width="article.image.responsiveImage.width"
+                    :height="article.image.responsiveImage.height"
+                    :title="article.image.responsiveImage.title"
+                    >
                     <h3>{{ article.title }}</h3>
                     <p>{{ article.subtitle }}</p>
                 </nuxt-link>
             </li>
             <li v-else>
                 <nuxt-link :to="{name: 'destinations-slug', params: {slug: article.slug}}">
-                    <img :src="article.image.url" :alt="article.image.alt" :srcset="article.image.responsiveImage.scrSet">
+                    <img 
+                    :src="article.image.responsiveImage.src" 
+                    :alt="article.image.responsiveImage.alt" 
+                    :srcset="article.image.responsiveImage.scrSet"
+                    :sizes="article.image.responsiveImage.sizes"
+                    :width="article.image.responsiveImage.width"
+                    :height="article.image.responsiveImage.height"
+                    :title="article.image.responsiveImage.title"
+                    >
                     <h3>{{ article.title }}</h3>
                     <p>{{ article.subtitle }}</p>
                 </nuxt-link>

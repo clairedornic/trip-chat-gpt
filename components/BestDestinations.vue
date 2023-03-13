@@ -1,9 +1,17 @@
 <template>
     <div class="articles-container">
-        <ul v-for="article in dataBestDestinations.allArticles" :key="article.id">
-            <li>
+        <ul>
+            <li v-for="article in dataBestDestinations.allArticles" :key="article.id">
                 <nuxt-link :to="{name: 'destinations-slug', params: {slug: article.slug}}">
-                    <img :src="article.image.url" :alt="article.image.alt" :srcset="article.image.responsiveImage.scrSet">
+                    <img 
+                    :src="article.image.responsiveImage.src" 
+                    :alt="article.image.responsiveImage.alt" 
+                    :srcset="article.image.responsiveImage.scrSet"
+                    :sizes="article.image.responsiveImage.sizes"
+                    :width="article.image.responsiveImage.width"
+                    :height="article.image.responsiveImage.height"
+                    :title="article.image.responsiveImage.title"
+                    >
                     <h3>{{ article.title }}</h3>
                     <p>{{ article.subtitle }}</p>
                 </nuxt-link>
