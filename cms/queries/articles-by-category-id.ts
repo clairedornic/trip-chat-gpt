@@ -7,11 +7,14 @@ query MyQuery($idCategory: [ItemId]) {
     id
     _modelApiKey
     image {
-      url
-      title
-      alt
-      responsiveImage {
+      responsiveImage(imgixParams: { fit: crop, w: 250, h: 250, auto: format }) {
+        src
         srcSet
+        sizes
+        width
+        height
+        alt
+        title
       }
     }
   }

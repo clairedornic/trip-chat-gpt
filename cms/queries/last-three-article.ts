@@ -6,11 +6,14 @@ query MyQuery($idCategory: [ItemId]) {
     slug
     id
     image {
-      url
-      title
-      alt
-      responsiveImage {
+      responsiveImage(imgixParams: { fit: crop, w: 300, h: 250, auto: format }) {
+        src
         srcSet
+        sizes
+        width
+        height
+        alt
+        title
       }
     }
   }

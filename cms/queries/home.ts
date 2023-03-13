@@ -5,15 +5,20 @@ query MyQuery {
       title
       titleBestDestination
       titleLastArticles
+      textCallToAction
       calltoaction {
         slug
         id
       }
       image {
-        url
-        alt
-        responsiveImage {
+        responsiveImage(imgixParams: { fit: crop, w: 600, h: 400, auto: format }) {
+          src
           srcSet
+          sizes
+          width
+          height
+          alt
+          title
         }
       }
       _seoMetaTags {
