@@ -16,7 +16,6 @@
     const { data, pending: postsPending } = await useAsyncQuery(article, { slug: {eq : slug } } );
 
     object.value = data;
-    console.log(object);
 
     const seoTags = object._rawValue._rawValue.article._seoMetaTags;
 
