@@ -1,21 +1,26 @@
 <template>
-    <div>  
-        <section class="hero">
+    <main>  
+        <section class="hero container-section">
             <div v-if="HomeDataPending">
                 <p>Loading data</p>
             </div>
-            <div v-else>
+            <div class="container-content" v-else>
                 <div class="content">
                     <h1>{{ data.homePage.title }}</h1>
                     <p>{{ data.homePage.subtitle }}</p>
-                    <NuxtLink :to="{name: 'about'}" target="_blank">More informations</NuxtLink>
+                    <NuxtLink :to="{name: 'about'}" class="btn" target="_blank">{{ data.homePage.textCallToAction }}</NuxtLink>
                 </div>
                 <div class="container-img">
-                    <img :src="data.homePage.image.url" :alt="data.homePage.image.alt" :srcset="data.homePage.image.responsiveImage.scrSet">
+                    <img 
+                    :src="data.homePage.image.responsiveImage.src" 
+                    :alt="data.homePage.image.responsiveImage.alt" 
+                    :srcset="data.homePage.image.responsiveImage.srcSet"
+                    :sizes="data.homePage.image.responsiveImage.sizes"
+                    >
                 </div>
             </div>
         </section>
-        <section class="destinations">
+        <section class="destinations container-section">
             <h2>{{ data.homePage.titleBestDestination }}</h2>
             <div v-if="destinationCategoryPending">
                 <p>Loading data</p>
@@ -24,7 +29,7 @@
                 <BestDestinations :categoryId=dataDestinationCategory.category.id></BestDestinations>
             </div>
         </section>
-        <section class="last-articles">
+        <section class="last-articles container-section">
             <h2>{{ data.homePage.titleLastArticles }}</h2>
             <div v-if="blogCategoryPending">
                 <p>Loading data</p>
@@ -33,7 +38,7 @@
                 <LastArticles :categoryId=dataBlogCategory.category.id></LastArticles>
             </div>
         </section>
-    </div>
+    </main>
 </template>
 
 <script setup>
