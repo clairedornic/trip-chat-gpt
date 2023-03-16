@@ -64,6 +64,7 @@
     --primary-color: #c3e3ff;
     --dark-primary-color: #90cbff;
     --black-color: #101010;
+    --light-black-color: #3f3f3f;
 }
 
 html {
@@ -210,6 +211,7 @@ header {
             position: fixed;
             height: 100vh;
             opacity: 0;
+            z-index: 5;
             pointer-events: none;
             inset: 0;
             background: white;
@@ -539,6 +541,124 @@ footer {
     .last-articles {
         h2 {
             font-size: 2rem;
+        }
+    }
+}
+
+/****************
+* CATEGORIES
+****************/
+.page-category {
+    margin-bottom: 2rem;
+    padding: 0 5rem;
+    
+    h1 {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+    }
+
+    & > p {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .articles-container {
+       max-width: 1300px;
+       margin: auto;
+    }
+}
+
+/****************
+* SINGLE
+****************/
+.single {
+    max-width: 1300px;
+    margin: 0 auto 2rem auto;
+    padding: 0 4rem;
+
+    .hero {
+        .content,
+        .container-img {
+            width: 50%;
+        }
+
+        .content {
+            padding-left: 3rem;
+
+            span {
+                font-size: 12px;
+                color: var(--light-black-color);
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                font-weight: bold;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                width: 75%;
+            }
+        }
+
+        .container-img {
+            img {
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .single {
+        .hero {
+            .content {
+                width: 60%;
+            }
+
+            .container-img {
+                width: 40%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .single {
+        .hero {
+            display: flex;
+            flex-direction: column;
+
+            .content,
+            .container-img {
+                width: 100%;
+            }
+
+            .content {
+                padding-left: 0;
+                padding-top: 2rem;
+
+                h1 {
+                    font-size: 2rem;
+                    line-height: 2.2rem;
+                }
+    
+                p {
+                    width: 100%;
+                }
+            }
+
+            .container-img {
+                img {
+                    object-fit: cover;
+                    max-height: 225px;
+                }
+            }
         }
     }
 }
