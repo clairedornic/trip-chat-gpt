@@ -2,7 +2,7 @@
     <div v-if="postsPending">
         <p>Loading data</p>
     </div>
-    <div v-else class="page-container">
+    <div v-else class="page-category">
         <h1>{{ data.category.title }}</h1>
         <p>{{ data.category.subtitle }}</p>
         <AllArticles :categoryId=data.category.id :categorySlug=slug></AllArticles>
