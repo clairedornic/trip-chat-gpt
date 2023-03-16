@@ -1,6 +1,9 @@
 <template>
     <h1>{{ data.aboutPage.title }}</h1>
     <p>{{ data.aboutPage.subtitle }}</p>
+    <div class="content">
+        <ModularContent :content=data.aboutPage.content></ModularContent>
+    </div>
 </template>
 
 <script setup>
