@@ -1,8 +1,8 @@
 <template>
     <div class="articles-container">
-        <ul v-for="article in data.allArticles" :key="article.id">
-            <li v-if="props.categorySlug === 'blog'">
-                <nuxt-link :to="{name: 'blog-slug', params: {slug: article.slug}}">
+        <ul>
+            <li v-for="article in data.allArticles" :key="article.id" >
+                <nuxt-link v-if="props.categorySlug === 'blog'" :to="{name: 'blog-slug', params: {slug: article.slug}}">
                     <img 
                     :src="article.image.responsiveImage.src" 
                     :alt="article.image.responsiveImage.alt" 
@@ -15,9 +15,7 @@
                     <h3>{{ article.title }}</h3>
                     <p>{{ article.subtitle }}</p>
                 </nuxt-link>
-            </li>
-            <li v-else>
-                <nuxt-link :to="{name: 'destinations-slug', params: {slug: article.slug}}">
+                <nuxt-link v-else :to="{name: 'destinations-slug', params: {slug: article.slug}}">
                     <img 
                     :src="article.image.responsiveImage.src" 
                     :alt="article.image.responsiveImage.alt" 
