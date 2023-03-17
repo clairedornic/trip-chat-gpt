@@ -1,13 +1,47 @@
 <template>
-    <h1>{{ data.aboutPage.title }}</h1>
-    <p>{{ data.aboutPage.subtitle }}</p>
-    <div class="content">
-        <ModularContent :content=data.aboutPage.content></ModularContent>
-    </div>
+    <main class="page-about">
+        <div class="content-container" v-if="postsPending">
+            <p>Loading data</p>
+        </div>
+        <div class="content-container" v-else>
+            <div class="hero-about container-section">
+                <div class="title-container">
+                    <h1>{{ data.aboutPage.title }}</h1>
+                </div>
+                <div class="subtitle-container">
+                    <p>{{ data.aboutPage.subtitle }}</p>
+                </div>
+            </div>
+            <div class="full-width-container">
+                <img 
+                    :src="data.aboutPage.heroImage.responsiveImage.src" 
+                    :alt="data.aboutPage.heroImage.responsiveImage.alt" 
+                    :srcset="data.aboutPage.heroImage.responsiveImage.srcSet"
+                    :sizes="data.aboutPage.heroImage.responsiveImage.sizes"
+                >
+            </div>
+            <div class="content container-section">
+                <ModularContent :content=data.aboutPage.content></ModularContent>
+                <section class="follow-us-section">
+                    <div class="title-media" v-for="block in data.aboutPage.modularContent" >
+                        <h2>{{ block.blockTitleImageTitle }}</h2>
+                        <div class="img-container full-width-container">
+                            <img 
+                            :src="block.blockTitleImageImage.responsiveImage.src" 
+                            :alt="block.blockTitleImageImage.responsiveImage.alt" 
+                            :srcset="block.blockTitleImageImage.responsiveImage.srcSet"
+                            :sizes="block.blockTitleImageImage.responsiveImage.sizes"
+                            >
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
 </template>
 
 <script setup>
-   import about from '@/cms/queries/about';
+    import about from '@/cms/queries/about';
     const { data: data, pending: postsPending } = await useAsyncQuery(about)
 
     const seoTags = data._rawValue.aboutPage._seoMetaTags;
@@ -37,5 +71,10 @@
         ogDescription: ogDescription,
         ogImage: ogImage,
         twitterCard: twitterImage,
+    })
+
+    definePageMeta({
+        title: 'A propos',
+        path: '/a-propos',
     })
 </script>
