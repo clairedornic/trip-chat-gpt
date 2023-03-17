@@ -1,6 +1,6 @@
-# Nuxt 3 Minimal Starter
+# Blog trip made with chat GTP
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Made with DATO CMS and Nuxt 3 (https://www.datocms.com/docs, https://nuxt.com/docs/getting-started/introduction)
 
 ## Setup
 
@@ -17,26 +17,10 @@ npm install
 pnpm install
 ```
 
-## Development Server
+## Link Development site
 
-Start the development server on http://localhost:3000
+https://staging--monumental-sawine-208871.netlify.app/
 
-```bash
-npm run dev
-```
 
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Link Production site
+https://monumental-sawine-208871.netlify.app/
