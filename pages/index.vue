@@ -1,5 +1,5 @@
 <template>
-    <main>  
+    <main class="page-home">  
         <section class="hero container-section">
             <div v-if="HomeDataPending">
                 <p>Loading data</p>
