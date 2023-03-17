@@ -1,10 +1,11 @@
 export default gql`
 query MyQuery($idCategory: [ItemId]) {
-  allArticles(orderBy: _createdAt_DESC, first: "3", filter: {categories: {allIn: $idCategory}}) {
+ allArticles(filter: {categories: {allIn: $idCategory}}) {
     title
     subtitle
     slug
     id
+    _modelApiKey
     image {
       responsiveImage(imgixParams: { fit: crop, w: 300, h: 250, auto: format }) {
         src

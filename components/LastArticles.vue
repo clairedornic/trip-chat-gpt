@@ -1,9 +1,17 @@
 <template>
     <div class="articles-container">
-        <ul v-for="article in dataLastArticles.allArticles" :key="article.id">
-            <li>
+        <ul>
+            <li v-for="article in dataLastArticles.allArticles" :key="article.id">
                 <nuxt-link :to="{name: 'blog-slug', params: {slug: article.slug}}">
-                    <img :src="article.image.url" :alt="article.image.alt" :srcset="article.image.responsiveImage.scrSet">
+                    <img 
+                    :src="article.image.responsiveImage.src" 
+                    :alt="article.image.responsiveImage.alt" 
+                    :srcset="article.image.responsiveImage.scrSet"
+                    :sizes="article.image.responsiveImage.sizes"
+                    :width="article.image.responsiveImage.width"
+                    :height="article.image.responsiveImage.height"
+                    :title="article.image.responsiveImage.title"
+                    >
                     <h3>{{ article.title }}</h3>
                     <p>{{ article.subtitle }}</p>
                 </nuxt-link>
@@ -18,5 +26,5 @@
         categoryId: String
     })
 
-    const { data: dataLastArticles, pending: lastArticlesPending, error: error } = await useLazyAsyncQuery(lastArticles, { idCategory: props.categoryId } );
+    const { data: dataLastArticles, pending: lastArticlesPending, error: error } = await useAsyncQuery(lastArticles, { idCategory: props.categoryId } );
 </script>
