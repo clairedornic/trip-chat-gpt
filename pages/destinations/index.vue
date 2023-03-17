@@ -1,12 +1,12 @@
 <template>
-    <div v-if="postsPending">
-        <p>Loading data</p>
-    </div>
-    <div v-else class="page-category category-destinations">
+    <main v-if="postsPending">
+            <p>Loading data</p>
+    </main>
+    <main v-else class="page-category category-destinations">
         <h1>{{ data.category.title }}</h1>
         <p>{{ data.category.subtitle }}</p>
         <AllArticles :categoryId=data.category.id :categorySlug=slug></AllArticles>
-    </div>
+    </main>
 </template>
 <script setup>
     import category from '@/cms/queries/category';

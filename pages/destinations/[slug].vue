@@ -1,5 +1,5 @@
 <template>
-    <div class="single">
+    <main class="single">
         <div class="hero">
             <div class="container-img">
                 <img 
@@ -18,7 +18,10 @@
                 <p>{{ data.article.subtitle }}</p>
             </div>
         </div>
-    </div>
+        <div class="content container-section">
+            <ModularContent :content=data.article.content></ModularContent>
+        </div>
+    </main>
 </template>
 
 <script setup>

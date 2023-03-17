@@ -1,12 +1,12 @@
 <template>
-    <div v-if="postsPending">
+    <main v-if="postsPending">
         <p>Loading data</p>
-    </div>
-    <div v-else class="page-category">
+    </main>
+    <main v-else class="page-category">
         <h1>{{ data.category.title }}</h1>
         <p>{{ data.category.subtitle }}</p>
         <AllArticles :categoryId=data.category.id :categorySlug=slug></AllArticles>
-    </div>
+    </main>
 </template>
 <script setup>
     import category from '@/cms/queries/category';
@@ -46,5 +46,10 @@
         ogDescription: ogDescription,
         ogImage: ogImage,
         twitterCard: twitterImage,
+    })
+
+    definePageMeta({
+        title: 'Nos articles',
+        path: '/nos-articles',
     })
 </script>
