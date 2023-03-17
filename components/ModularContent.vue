@@ -1,5 +1,6 @@
 <template>
-     <template v-for="contentElement in props.content.value.document.children">
+    <div class="modular-content">
+        <template v-for="contentElement in props.content.value.document.children">
             <template v-if="contentElement.type === 'heading' && contentElement.level === 2">
                 <h2 v-for="title in contentElement.children">
                     {{ title.value }}
@@ -20,7 +21,16 @@
                     {{ paragraph.value }}
                 </p>
             </template>
-            <ul v-if="contentElement.type === 'list'">
+            <ol v-if="contentElement.type === 'list' && contentElement.style === 'numbered'">
+                <li v-for="item in contentElement.children">
+                    <template v-for="itemList in item.children">
+                        <template v-for="itemListContent in itemList.children">
+                            {{ itemListContent.value }}
+                        </template>
+                    </template>
+                </li>
+            </ol>
+            <ul v-if="contentElement.type === 'list' && contentElement.style === 'bulleted'">
                 <li v-for="item in contentElement.children">
                     <template v-for="itemList in item.children">
                         <template v-for="itemListContent in itemList.children">
@@ -30,6 +40,8 @@
                 </li>
             </ul>
         </template>
+    </div>
+    
 </template>
 <script setup>
 
